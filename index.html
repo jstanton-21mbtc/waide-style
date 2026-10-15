@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waide Style | Barbershop &amp; Salon — Geneseo, NY</title>
+  <style>
+    :root {
+      --bg: #0F0D0B;
+      --surface: #171210;
+      --card: #211810;
+      --border: #332418;
+      --gold: #C9A96E;
+      --gold-light: #E0C48A;
+      --cream: #F2EDE4;
+      --tan: #A89070;
+      --muted: #665040;
+      --brown: #8B5E3C;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--bg);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 56px;
+      background: rgba(15,13,11,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(201,169,110,0.12);
+      transition: padding 0.3s;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+    .nav-logo-svg { flex-shrink: 0; }
+    .nav-logo-text {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+    .nav-logo-text span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+    .nav-links a {
+      color: var(--tan);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .btn-nav {
+      background: var(--gold);
+      color: #0F0D0B;
+      border: none;
+      padding: 10px 26px;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .btn-nav:hover { background: var(--gold-light); }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 140px 24px 100px;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 25% 60%, rgba(139,94,60,0.14) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 25%, rgba(201,169,110,0.07) 0%, transparent 50%),
+        linear-gradient(175deg, #0F0D0B 0%, #1A130C 45%, #0F0D0B 100%);
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(91deg, transparent, transparent 3px, rgba(201,169,110,0.012) 3px, rgba(201,169,110,0.012) 6px);
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      opacity: 0.9;
+    }
+    .hero-title {
+      font-size: clamp(72px, 12vw, 130px);
+      font-weight: 400;
+      letter-spacing: 14px;
+      text-transform: uppercase;
+      line-height: 0.88;
+      color: var(--cream);
+    }
+    .hero-title-sub {
+      display: block;
+      font-size: clamp(26px, 3.5vw, 44px);
+      letter-spacing: 20px;
+      color: var(--gold);
+      margin-top: 6px;
+    }
+    .hero-rule {
+      width: 56px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 36px auto;
+    }
+    .hero-sub {
+      font-size: 15px;
+      color: var(--tan);
+      letter-spacing: 2px;
+      margin-bottom: 52px;
+      font-style: italic;
+    }
+    .btn-hero {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 17px 52px;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.3s;
+      margin-right: 12px;
+    }
+    .btn-hero:hover { background: var(--gold); color: #0F0D0B; }
+    .btn-hero-ghost {
+      background: transparent;
+      color: var(--tan);
+      border: 1px solid var(--border);
+      padding: 17px 32px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.3s;
+    }
+    .btn-hero-ghost:hover { border-color: var(--tan); color: var(--cream); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 44px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(180deg, transparent, var(--gold));
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.25; }
+      50% { opacity: 0.9; }
+    }
+
+    /* ===== SECTION BASE ===== */
+    section { padding: 104px 56px; }
+    .section-eyebrow {
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      opacity: 0.9;
+    }
+    .section-title {
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .section-rule {
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.45;
+      margin-bottom: 52px;
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .about-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 88px;
+      align-items: center;
+    }
+    .about-medallion {
+      width: 260px;
+      height: 260px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .about-medallion::before {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(201,169,110,0.18);
+      border-radius: 50%;
+    }
+    .about-med-initials {
+      font-size: 52px;
+      letter-spacing: 6px;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .about-med-name {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+    .about-med-role {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-top: 5px;
+    }
+    .about-body p {
+      color: var(--tan);
+      line-height: 1.85;
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+    .about-stats {
+      display: flex;
+      gap: 44px;
+      margin-top: 36px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-num {
+      display: block;
+      font-size: 40px;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--tan);
+    }
+
+    /* ===== SERVICES ===== */
+    .services-inner { max-width: 1080px; margin: 0 auto; }
+    .services-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--border);
+    }
+    .svc-col {
+      padding: 48px;
+      background: var(--card);
+    }
+    .svc-col:first-child {
+      border-right: 1px solid var(--border);
+    }
+    .svc-col-heading {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 8px;
+    }
+    .svc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(51,36,24,0.5);
+    }
+    .svc-row:last-child { border-bottom: none; }
+    .svc-name { font-size: 14px; color: var(--cream); }
+    .svc-desc { font-size: 11px; color: var(--muted); font-style: italic; margin-top: 2px; }
+    .svc-price { font-size: 14px; color: var(--gold); margin-left: 16px; white-space: nowrap; }
+
+    /* ===== TEAM ===== */
+    .team {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+    .team-inner { max-width: 1080px; margin: 0 auto; }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .team-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .team-card:hover { border-color: rgba(201,169,110,0.45); }
+    .team-ava {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #2C1F14, #1A130C);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+      position: relative;
+    }
+    .team-ava::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 50%;
+      background: linear-gradient(transparent, var(--card));
+    }
+    .team-info { padding: 20px 20px 0; }
+    .team-name {
+      font-size: 15px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .team-role {
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; padding-bottom: 16px; }
+    .tag {
+      background: rgba(201,169,110,0.06);
+      border: 1px solid rgba(201,169,110,0.18);
+      color: var(--tan);
+      font-size: 8.5px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 8px;
+    }
+    .team-btn {
+      width: 100%;
+      background: transparent;
+      color: var(--tan);
+      border: none;
+      border-top: 1px solid var(--border);
+      padding: 13px;
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .team-btn:hover { background: var(--gold); color: #0F0D0B; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #080604;
+      border-top: 1px solid var(--border);
+      padding: 64px 56px;
+      text-align: center;
+    }
+    .footer-name {
+      font-size: 22px;
+      letter-spacing: 9px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .footer-name span { color: var(--gold); }
+    .footer-loc {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 2px;
+      margin-top: 12px;
+    }
+    .footer-hours {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 1.5px;
+      margin-top: 4px;
+    }
+    .footer-rule {
+      width: 36px;
+      height: 1px;
+      background: var(--border);
+      margin: 32px auto;
+    }
+    .footer-copy {
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ===== BOOKING MODAL ===== */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8,6,4,0.96);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      width: 100%;
+      max-width: 700px;
+      max-height: 92vh;
+      overflow-y: auto;
+      transform: translateY(18px);
+      transition: transform 0.3s;
+    }
+    .overlay.open .modal { transform: translateY(0); }
+    .modal-head {
+      padding: 28px 40px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: var(--surface);
+      z-index: 10;
+    }
+    .modal-head-title {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .modal-x {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 18px;
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: color 0.2s;
+      line-height: 1;
+    }
+    .modal-x:hover { color: var(--cream); }
+
+    /* Progress bar */
+    .progress-bar {
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .p-dot {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: all 0.3s;
+      letter-spacing: 0;
+    }
+    .p-dot.active { border-color: var(--gold); color: var(--gold); }
+    .p-dot.done { background: var(--gold); border-color: var(--gold); color: #0F0D0B; font-weight: bold; }
+    .p-line { flex: 1; height: 1px; background: var(--border); transition: background 0.3s; }
+    .p-line.done { background: rgba(201,169,110,0.3); }
+
+    /* Step panels */
+    .modal-body { padding: 40px; }
+    .step { display: none; }
+    .step.active { display: block; }
+    .step-title {
+      font-size: 24px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .step-sub {
+      font-size: 13px;
+      color: var(--tan);
+      font-style: italic;
+      margin-bottom: 32px;
+    }
+
+    /* Step 1 — Type */
+    .type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .type-card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      padding: 44px 28px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .type-card:hover, .type-card.sel { border-color: var(--gold); background: rgba(201,169,110,0.04); }
+    .type-icon { font-size: 44px; display: block; margin-bottom: 18px; }
+    .type-name {
+      font-size: 17px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .type-desc { font-size: 12px; color: var(--tan); line-height: 1.5; }
+
+    /* Step 2 — Staff */
+    .staff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .staff-card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.2s;
+    }
+    .staff-card:hover, .staff-card.sel { border-color: var(--gold); background: rgba(201,169,110,0.04); }
+    .staff-ava {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3A2414, #221608);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+      transition: border-color 0.2s;
+    }
+    .staff-card.sel .staff-ava { border-color: var(--gold); }
+    .s-name { font-size: 14px; letter-spacing: 1px; margin-bottom: 3px; }
+    .s-role { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .s-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+
+    /* Step 3 — Service */
+    .svc-opts { display: flex; flex-direction: column; gap: 8px; }
+    .svc-opt {
+      border: 1px solid var(--border);
+      background: var(--card);
+      padding: 16px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s;
+    }
+    .svc-opt:hover, .svc-opt.sel { border-color: var(--gold); background: rgba(201,169,110,0.04); }
+    .svc-opt-name { font-size: 14px; margin-bottom: 3px; }
+    .svc-opt-dur { font-size: 11px; color: var(--muted); }
+    .svc-opt-price { font-size: 16px; color: var(--gold); margin-left: 20px; }
+
+    /* Step 4 — Calendar */
+    .cal-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .cal-month-label {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .cal-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--tan);
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .cal-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 3px;
+      margin-bottom: 28px;
+    }
+    .cal-hdr {
+      text-align: center;
+      font-size: 8.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 8px 0;
+    }
+    .cal-d {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      transition: all 0.15s;
+    }
+    .cal-d:hover:not(.empty):not(.out) { border-color: var(--gold); color: var(--gold); }
+    .cal-d.sel { background: var(--gold); color: #0F0D0B; border-color: var(--gold); }
+    .cal-d.today { color: var(--gold); }
+    .cal-d.empty, .cal-d.out { cursor: default; opacity: 0.3; pointer-events: none; }
+    .times-label {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-bottom: 12px;
+    }
+    .times-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .t-slot {
+      border: 1px solid var(--border);
+      background: var(--card);
+      padding: 10px 4px;
+      text-align: center;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+      color: var(--cream);
+    }
+    .t-slot:hover, .t-slot.sel { border-color: var(--gold); color: var(--gold); background: rgba(201,169,110,0.06); }
+    .t-slot.na { opacity: 0.3; cursor: default; pointer-events: none; }
+
+    /* Step 5 — Details */
+    .summary-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+    .sum-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 9px 0;
+      font-size: 13px;
+      border-bottom: 1px solid rgba(51,36,24,0.5);
+    }
+    .sum-row:last-child { border-bottom: none; }
+    .sum-lbl { color: var(--tan); }
+    .sum-val { color: var(--cream); }
+    .sum-val.gold { color: var(--gold); }
+    .form-grp { margin-bottom: 20px; }
+    .form-lbl {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-bottom: 8px;
+    }
+    .form-inp {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--cream);
+      padding: 12px 16px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-inp:focus { border-color: var(--gold); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .btn-primary {
+      width: 100%;
+      background: var(--gold);
+      color: #0F0D0B;
+      border: none;
+      padding: 15px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); }
+    .btn-ghost {
+      width: 100%;
+      background: transparent;
+      color: var(--tan);
+      border: 1px solid var(--border);
+      padding: 13px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+    .btn-ghost:hover { border-color: var(--tan); color: var(--cream); }
+
+    /* Step 6 — Confirmed */
+    .confirmed { text-align: center; padding: 16px 0 8px; }
+    .check-ring {
+      width: 68px;
+      height: 68px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 28px;
+      color: var(--gold);
+    }
+    .conf-title {
+      font-size: 28px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .conf-sub {
+      color: var(--tan);
+      font-size: 14px;
+      font-style: italic;
+      margin-bottom: 32px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links a { display: none; }
+      section { padding: 72px 24px; }
+      .about-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .about-medallion { margin: 0 auto; }
+      .about-stats { justify-content: center; }
+      .services-cols { grid-template-columns: 1fr; }
+      .svc-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 48px 24px; }
+    }
+    @media (max-width: 600px) {
+      .hero-title { letter-spacing: 8px; }
+      .hero-title-sub { letter-spacing: 12px; }
+      .btn-hero, .btn-hero-ghost { display: block; width: 100%; max-width: 280px; margin: 0 auto 10px; }
+      .team-grid { grid-template-columns: 1fr; }
+      .modal-body { padding: 28px 20px; }
+      .modal-head { padding: 20px 20px; }
+      .progress-bar { padding: 14px 20px; }
+      .type-grid { grid-template-columns: 1fr; }
+      .staff-grid { grid-template-columns: 1fr; }
+      .times-grid { grid-template-columns: repeat(3, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <svg class="nav-logo-svg" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="17" y1="3" x2="17" y2="31" stroke="#C9A96E" stroke-width="1.2"/>
+      <path d="M10 9 Q17 16 24 9" stroke="#C9A96E" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <path d="M10 25 Q17 18 24 25" stroke="#C9A96E" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <circle cx="17" cy="17" r="3.5" stroke="#C9A96E" stroke-width="1"/>
+    </svg>
+    <span class="nav-logo-text">Waide <span>Style</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#team">Team</a>
+    <button class="btn-nav" onclick="openBooking()">Book Now</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Barbershop &amp; Salon &mdash; Geneseo, NY</p>
+    <h1 class="hero-title">
+      Waide
+      <span class="hero-title-sub">Style</span>
+    </h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Precision cuts. Clean lines. Premium experience.</p>
+    <div>
+      <button class="btn-hero" onclick="openBooking()">Book Appointment</button>
+      <button class="btn-hero-ghost" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">View Services</button>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    scroll
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div>
+      <div class="about-medallion">
+        <div class="about-med-initials">GW</div>
+        <div class="about-med-name">Gavin Waide</div>
+        <div class="about-med-role">Owner &amp; Master Barber</div>
+      </div>
+    </div>
+    <div class="about-body">
+      <p class="section-eyebrow">Our Story</p>
+      <h2 class="section-title">Built for the<br>Craft</h2>
+      <div class="section-rule"></div>
+      <p>Waide Style was built on a simple belief &mdash; every person deserves to walk out feeling sharp. Located on Main Street in Geneseo, NY, we blend old-school barbershop tradition with modern salon expertise under one roof.</p>
+      <p>Owner and master barber Gavin Waide opened this shop to create more than just a haircut. It&rsquo;s a clean, premium experience where every detail matters and every client is treated right.</p>
+      <div class="about-stats">
+        <div>
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Years of Experience</span>
+        </div>
+        <div>
+          <span class="stat-num">5</span>
+          <span class="stat-label">Expert Stylists</span>
+        </div>
+        <div>
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-inner">
+    <p class="section-eyebrow">What We Offer</p>
+    <h2 class="section-title">Services &amp; Pricing</h2>
+    <div class="section-rule"></div>
+    <div class="services-cols">
+      <div class="svc-col">
+        <div class="svc-col-heading">&#9986; Barber Services</div>
+        <div class="svc-row">
+          <div><div class="svc-name">Classic Haircut</div><div class="svc-desc">Scissor or clipper cut, finished with hot towel</div></div>
+          <div class="svc-price">$30</div>
+        </div>
+        <div class="svc-row">
+          <div><div class="svc-name">Fade</div><div class="svc-desc">High, mid, or low &mdash; clean taper finish</div></div>
+          <div class="svc-price">$35</div>
+        </div>
+        <div class="svc-row">
+          <div><div class="svc-name">Beard Trim &amp; Shape</div><div class="svc-desc">Line-up, shape, and finish</div></div>
+          <div class="svc-price">$20</div>
+        </div>
+        <div class="svc-row">
+          <div><div class="svc-name">Cut + Beard Combo</div><div class="svc-desc">Full service &mdash; cut, fade, and beard</div></div>
+          <div class="svc-price">$50</div>
+        </div>
+        <div class="svc-row">
+          <div><div class="svc-name">Kid&rsquo;s Cut</div><div class="svc-desc">Under 12 &mdash; patient and precise</div></div>
+          <div class="svc-price">$25</div>
+        </div>
+        <div class="svc-row">
+          <div><div class="svc-name">Hot Towel Shave</div><div class="svc-desc">Classic straight-razor experience</div></div>
+          <div class="svc-price">$40</div>
+        </div>
+      </div>
+      <div class="svc-col">
+        <div class="svc-col-heading">&#128135; Salon Services</div>
+        <div class="svc-row">
+          <div><div class="svc-name">Cut &amp; Style</div><div class="svc-desc">Wash, cut, blowout, and finish</div></div>
+          <div class="svc-price">$55+</div>
+        </div>
+        <div class="svc-row">
+          <div><div class="svc-name">Full Color</div><div class="svc-desc">All-over single process color</div></div>
+          <div class="svc-price">$85+</div>
+        </div>
+        <div class="svc-row">
+          <div><div class="svc-name">Highlights</div><div class="svc-desc">Partial or full &mdash; balayage available</div></div>
+          <div class="svc-price">$95+</div>
+        </div>
+        <div class="svc-row">
+          <div><div class="svc-name">Blowout</div><div class="svc-desc">Wash and style, no cut</div></div>
+          <div class="svc-price">$45</div>
+        </div>
+        <div class="svc-row">
+          <div><div class="svc-name">Keratin Treatment</div><div class="svc-desc">Smoothing and frizz control</div></div>
+          <div class="svc-price">$150+</div>
+        </div>
+        <div class="svc-row">
+          <div><div class="svc-name">Deep Condition</div><div class="svc-desc">Restorative moisture treatment</div></div>
+          <div class="svc-price">$35</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="team-inner">
+    <p class="section-eyebrow">The Crew</p>
+    <h2 class="section-title">Meet the Team</h2>
+    <div class="section-rule"></div>
+    <div class="team-grid" id="teamGrid"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Waide <span>Style</span></div>
+  <div class="footer-loc">Main Street &middot; Geneseo, NY 14454</div>
+  <div class="footer-hours">Mon &ndash; Fri &nbsp;9am &ndash; 7pm &nbsp;&middot;&nbsp; Sat &nbsp;8am &ndash; 5pm &nbsp;&middot;&nbsp; Sun Closed</div>
+  <div class="footer-rule"></div>
+  <div class="footer-copy">&copy; 2026 Waide Style &middot; All Rights Reserved</div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="overlay" id="overlay" onclick="handleOverlayClick(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+
+    <div class="modal-head">
+      <span class="modal-head-title" id="modalTitle">Book Appointment</span>
+      <button class="modal-x" onclick="closeBooking()">&#10005;</button>
+    </div>
+
+    <div class="progress-bar">
+      <div class="p-dot active" id="pd1">1</div>
+      <div class="p-line" id="pl1"></div>
+      <div class="p-dot" id="pd2">2</div>
+      <div class="p-line" id="pl2"></div>
+      <div class="p-dot" id="pd3">3</div>
+      <div class="p-line" id="pl3"></div>
+      <div class="p-dot" id="pd4">4</div>
+      <div class="p-line" id="pl4"></div>
+      <div class="p-dot" id="pd5">5</div>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- STEP 1: TYPE -->
+      <div class="step active" id="s1">
+        <h2 class="step-title">What brings you in?</h2>
+        <p class="step-sub">Choose the type of service you&rsquo;re looking for</p>
+        <div class="type-grid">
+          <div class="type-card" onclick="pickType('barber', this)">
+            <span class="type-icon">&#9986;</span>
+            <div class="type-name">Barber</div>
+            <div class="type-desc">Haircuts, fades, beard trims &amp; straight-razor shaves</div>
+          </div>
+          <div class="type-card" onclick="pickType('salon', this)">
+            <span class="type-icon">&#10024;</span>
+            <div class="type-name">Salon</div>
+            <div class="type-desc">Color, highlights, styling, keratin &amp; treatments</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: STAFF -->
+      <div class="step" id="s2">
+        <h2 class="step-title">Choose Your <span id="staffTypeWord">Barber</span></h2>
+        <p class="step-sub">Select who you&rsquo;d like to book with</p>
+        <div class="staff-grid" id="staffGrid"></div>
+        <button class="btn-ghost" style="margin-top:16px;" onclick="goStep(1)">&#8592; Back</button>
+      </div>
+
+      <!-- STEP 3: SERVICE -->
+      <div class="step" id="s3">
+        <h2 class="step-title">Select a Service</h2>
+        <p class="step-sub" id="withLabel">with Gavin Waide</p>
+        <div class="svc-opts" id="svcOpts"></div>
+        <button class="btn-ghost" style="margin-top:16px;" onclick="backFromService()">&#8592; Back</button>
+      </div>
+
+      <!-- STEP 4: DATE/TIME -->
+      <div class="step" id="s4">
+        <h2 class="step-title">Date &amp; Time</h2>
+        <p class="step-sub">Pick an available slot</p>
+        <div class="cal-nav">
+          <button class="cal-btn" onclick="shiftMonth(-1)">&#8249;</button>
+          <span class="cal-month-label" id="calLabel"></span>
+          <button class="cal-btn" onclick="shiftMonth(1)">&#8250;</button>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div id="timesSection" style="display:none;">
+          <p class="times-label">Available Times</p>
+          <div class="times-grid" id="timesGrid"></div>
+        </div>
+        <button class="btn-ghost" style="margin-top:24px;" onclick="goStep(3)">&#8592; Back</button>
+      </div>
+
+      <!-- STEP 5: DETAILS -->
+      <div class="step" id="s5">
+        <h2 class="step-title">Your Details</h2>
+        <p class="step-sub">Almost done &mdash; confirm your booking below</p>
+        <div class="summary-box" id="summaryBox"></div>
+        <div class="form-row">
+          <div class="form-grp">
+            <label class="form-lbl">First Name</label>
+            <input class="form-inp" id="fname" type="text" placeholder="First">
+          </div>
+          <div class="form-grp">
+            <label class="form-lbl">Last Name</label>
+            <input class="form-inp" id="lname" type="text" placeholder="Last">
+          </div>
+        </div>
+        <div class="form-grp">
+          <label class="form-lbl">Phone Number</label>
+          <input class="form-inp" id="phone" type="tel" placeholder="(585) 000-0000">
+        </div>
+        <div class="form-grp">
+          <label class="form-lbl">Email Address</label>
+          <input class="form-inp" id="email" type="email" placeholder="you@email.com">
+        </div>
+        <div class="form-grp">
+          <label class="form-lbl">Notes (optional)</label>
+          <input class="form-inp" id="notes" type="text" placeholder="Any special requests...">
+        </div>
+        <button class="btn-primary" onclick="submitBooking()">Confirm Appointment</button>
+        <button class="btn-ghost" onclick="goStep(4)">&#8592; Back</button>
+      </div>
+
+      <!-- STEP 6: CONFIRMED -->
+      <div class="step" id="s6">
+        <div class="confirmed">
+          <div class="check-ring">&#10003;</div>
+          <h2 class="conf-title">You&rsquo;re Booked</h2>
+          <p class="conf-sub">See you soon at Waide Style.</p>
+          <div class="summary-box" id="confirmBox" style="text-align:left;margin-bottom:24px;"></div>
+          <p style="font-size:11px;color:var(--muted);letter-spacing:1px;margin-bottom:28px;">Main Street &middot; Geneseo, NY &middot; If you need to reschedule, please call us directly.</p>
+          <button class="btn-primary" onclick="closeBooking()">Done</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  const STAFF = {
+    barber: [
+      { id:'gavin',  name:'Gavin Waide',   role:'Owner & Master Barber', icon:'&#9986;&#65039;', tags:['Fades','Tapers','Beard Work','Classic Cuts'] },
+      { id:'marcus', name:'Marcus Reed',    role:'Senior Barber',         icon:'&#128136;',       tags:['High Fades','Line-ups','Kid\'s Cuts'] },
+      { id:'tyler',  name:'Tyler Brooks',   role:'Barber',                icon:'&#128084;',       tags:['Scissor Cuts','Texture','Hot Towel'] }
+    ],
+    salon: [
+      { id:'sophia', name:'Sophia Lane',    role:'Lead Stylist',          icon:'&#128138;',       tags:['Color','Balayage','Keratin','Styling'] },
+      { id:'amber',  name:'Amber Cruz',     role:'Stylist',               icon:'&#127807;',       tags:['Cuts','Highlights','Blowouts','Deep Cond.'] }
+    ]
+  };
+
+  const SERVICES = {
+    barber: [
+      { name:'Classic Haircut',     price:'$30',   dur:'30 min' },
+      { name:'Fade',                price:'$35',   dur:'40 min' },
+      { name:'Beard Trim & Shape',  price:'$20',   dur:'20 min' },
+      { name:'Cut + Beard Combo',   price:'$50',   dur:'60 min' },
+      { name:"Kid's Cut",           price:'$25',   dur:'25 min' },
+      { name:'Hot Towel Shave',     price:'$40',   dur:'45 min' }
+    ],
+    salon: [
+      { name:'Cut & Style',         price:'$55+',  dur:'60 min' },
+      { name:'Full Color',          price:'$85+',  dur:'90 min' },
+      { name:'Highlights',          price:'$95+',  dur:'120 min' },
+      { name:'Blowout',             price:'$45',   dur:'45 min' },
+      { name:'Keratin Treatment',   price:'$150+', dur:'120 min' },
+      { name:'Deep Condition',      price:'$35',   dur:'30 min' }
+    ]
+  };
+
+  const TIMES = ['9:00 AM','9:30 AM','10:00 AM','10:30 AM','11:00 AM','11:30 AM',
+                 '12:00 PM','12:30 PM','1:00 PM','1:30 PM','2:00 PM','2:30 PM',
+                 '3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM','5:30 PM'];
+
+  const NA_SLOTS = [1, 4, 8, 12, 15]; // simulated unavailable
+
+  let bk = { type:null, staff:null, service:null, date:null, time:null };
+  let calY = 2026, calM = 9; // Oct 2026 (0-indexed)
+
+  // ---- INIT ----
+  (function init() {
+    renderTeam();
+    drawCal();
+  })();
+
+  function renderTeam() {
+    const all = [...STAFF.barber, ...STAFF.salon];
+    document.getElementById('teamGrid').innerHTML = all.map(s => `
+      <div class="team-card">
+        <div class="team-ava">${s.icon}</div>
+        <div class="team-info">
+          <div class="team-name">${s.name}</div>
+          <div class="team-role">${s.role}</div>
+          <div class="tags">${s.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        </div>
+        <button class="team-btn" onclick="openForStaff('${s.id}')">Book ${s.name.split(' ')[0]}</button>
+      </div>
+    `).join('');
+  }
+
+  // ---- MODAL ----
+  function openBooking() {
+    resetBk();
+    document.getElementById('overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    goStep(1);
+  }
+
+  function openForStaff(id) {
+    resetBk();
+    const inBarber = STAFF.barber.find(s => s.id === id);
+    bk.type = inBarber ? 'barber' : 'salon';
+    bk.staff = [...STAFF.barber, ...STAFF.salon].find(s => s.id === id);
+    document.getElementById('overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    renderSvcOpts();
+    updateWithLabel();
+    goStep(3);
+  }
+
+  function closeBooking() {
+    document.getElementById('overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('overlay')) closeBooking();
+  }
+
+  function resetBk() {
+    bk = { type:null, staff:null, service:null, date:null, time:null };
+  }
+
+  // ---- STEPS ----
+  function goStep(n) {
+    for (let i = 1; i <= 6; i++)
+      document.getElementById('s'+i).classList.toggle('active', i === n);
+    updateProgress(n);
+    const titles = { 1:'Book Appointment', 2:'Choose Your Pro', 3:'Select Service',
+                     4:'Date & Time', 5:'Your Details', 6:'Booking Confirmed' };
+    document.getElementById('modalTitle').textContent = titles[n] || 'Book Appointment';
+  }
+
+  function updateProgress(step) {
+    for (let i = 1; i <= 5; i++) {
+      const d = document.getElementById('pd'+i);
+      d.classList.remove('active','done');
+      if (i < step) d.classList.add('done');
+      else if (i === step) d.classList.add('active');
+      if (i < 5) document.getElementById('pl'+i).classList.toggle('done', i < step);
+    }
+  }
+
+  // ---- STEP 1 ----
+  function pickType(type, el) {
+    bk.type = type;
+    document.querySelectorAll('.type-card').forEach(c => c.classList.remove('sel'));
+    el.classList.add('sel');
+    document.getElementById('staffTypeWord').textContent = type === 'barber' ? 'Barber' : 'Stylist';
+    renderStaffGrid();
+    setTimeout(() => goStep(2), 180);
+  }
+
+  // ---- STEP 2 ----
+  function renderStaffGrid() {
+    document.getElementById('staffGrid').innerHTML = STAFF[bk.type].map(s => `
+      <div class="staff-card" onclick="pickStaff('${s.id}', this)">
+        <div class="staff-ava">${s.icon}</div>
+        <div>
+          <div class="s-name">${s.name}</div>
+          <div class="s-role">${s.role}</div>
+          <div class="s-tags">${s.tags.slice(0,2).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function pickStaff(id, el) {
+    bk.staff = [...STAFF.barber, ...STAFF.salon].find(s => s.id === id);
+    document.querySelectorAll('.staff-card').forEach(c => c.classList.remove('sel'));
+    el.classList.add('sel');
+    renderSvcOpts();
+    updateWithLabel();
+    setTimeout(() => goStep(3), 180);
+  }
+
+  // ---- STEP 3 ----
+  function renderSvcOpts() {
+    document.getElementById('svcOpts').innerHTML = SERVICES[bk.type].map((s, i) => `
+      <div class="svc-opt" onclick="pickService(${i}, this)">
+        <div>
+          <div class="svc-opt-name">${s.name}</div>
+          <div class="svc-opt-dur">${s.dur}</div>
+        </div>
+        <div class="svc-opt-price">${s.price}</div>
+      </div>
+    `).join('');
+  }
+
+  function updateWithLabel() {
+    if (bk.staff) document.getElementById('withLabel').textContent = 'with ' + bk.staff.name;
+  }
+
+  function backFromService() {
+    // If staff was pre-selected (came from team card), go back to step 1
+    goStep(bk.type && !document.getElementById('staffGrid').innerHTML ? 1 : 2);
+  }
+
+  function pickService(idx, el) {
+    bk.service = SERVICES[bk.type][idx];
+    document.querySelectorAll('.svc-opt').forEach(c => c.classList.remove('sel'));
+    el.classList.add('sel');
+    bk.date = null;
+    bk.time = null;
+    drawCal();
+    setTimeout(() => goStep(4), 180);
+  }
+
+  // ---- STEP 4 ----
+  function drawCal() {
+    const months = ['January','February','March','April','May','June','July',
+                    'August','September','October','November','December'];
+    document.getElementById('calLabel').textContent = months[calM] + ' ' + calY;
+
+    const firstDay = new Date(calY, calM, 1).getDay();
+    const totalDays = new Date(calY, calM + 1, 0).getDate();
+    const today = new Date(); today.setHours(0,0,0,0);
+    const selStr = bk.date ? bk.date.toDateString() : '';
+
+    let html = ['Su','Mo','Tu','We','Th','Fr','Sa']
+      .map(d => `<div class="cal-hdr">${d}</div>`).join('');
+
+    for (let i = 0; i < firstDay; i++) html += `<div class="cal-d empty"></div>`;
+
+    for (let d = 1; d <= totalDays; d++) {
+      const dt = new Date(calY, calM, d);
+      const isPast = dt < today;
+      const isSun  = dt.getDay() === 0;
+      const isToday = dt.toDateString() === today.toDateString();
+      const isSel  = dt.toDateString() === selStr;
+      let cls = 'cal-d';
+      if (isPast || isSun) cls += ' out';
+      else if (isSel) cls += ' sel';
+      else if (isToday) cls += ' today';
+      const onclick = (!isPast && !isSun) ? `onclick="pickDate(${calY},${calM},${d})"` : '';
+      html += `<div class="${cls}" ${onclick}>${d}</div>`;
+    }
+    document.getElementById('calGrid').innerHTML = html;
+    document.getElementById('timesSection').style.display = 'none';
+  }
+
+  function shiftMonth(dir) {
+    calM += dir;
+    if (calM > 11) { calM = 0; calY++; }
+    if (calM < 0)  { calM = 11; calY--; }
+    drawCal();
+  }
+
+  function pickDate(y, m, d) {
+    bk.date = new Date(y, m, d);
+    bk.time = null;
+    drawCal();
+    renderTimes();
+    document.getElementById('timesSection').style.display = 'block';
+  }
+
+  function renderTimes() {
+    document.getElementById('timesGrid').innerHTML = TIMES.map((t, i) => {
+      const na = NA_SLOTS.includes(i);
+      return `<button class="t-slot${na ? ' na' : ''}" onclick="pickTime('${t}', this)">${t}</button>`;
+    }).join('');
+  }
+
+  function pickTime(t, el) {
+    bk.time = t;
+    document.querySelectorAll('.t-slot').forEach(s => s.classList.remove('sel'));
+    el.classList.add('sel');
+    buildSummary();
+    setTimeout(() => goStep(5), 180);
+  }
+
+  // ---- STEP 5 ----
+  function buildSummary() {
+    const dateStr = bk.date
+      ? bk.date.toLocaleDateString('en-US', {weekday:'long', month:'long', day:'numeric', year:'numeric'})
+      : '';
+    document.getElementById('summaryBox').innerHTML = summaryHTML(dateStr);
+  }
+
+  function summaryHTML(dateStr, name) {
+    let rows = [];
+    if (name) rows.push(['Name', name]);
+    rows.push(
+      ['Service',  bk.service?.name || ''],
+      ['With',     bk.staff?.name   || ''],
+      ['Date',     dateStr],
+      ['Time',     bk.time          || ''],
+      ['Duration', bk.service?.dur  || ''],
+      ['Price',    bk.service?.price || '']
+    );
+    return rows.map(([l,v], i) =>
+      `<div class="sum-row">
+        <span class="sum-lbl">${l}</span>
+        <span class="sum-val${i===rows.length-1?' gold':''}">${v}</span>
+      </div>`
+    ).join('');
+  }
+
+  // ---- STEP 6 ----
+  function submitBooking() {
+    const fn = document.getElementById('fname').value.trim();
+    const ln = document.getElementById('lname').value.trim();
+    const ph = document.getElementById('phone').value.trim();
+    if (!fn || !ln || !ph) { alert('Please fill in your name and phone number.'); return; }
+
+    const dateStr = bk.date
+      ? bk.date.toLocaleDateString('en-US', {weekday:'long', month:'long', day:'numeric', year:'numeric'})
+      : '';
+    document.getElementById('confirmBox').innerHTML = summaryHTML(dateStr, fn + ' ' + ln);
+
+    // Mark all progress dots done
+    for (let i = 1; i <= 5; i++) {
+      const d = document.getElementById('pd'+i);
+      d.classList.remove('active');
+      d.classList.add('done');
+      if (i < 5) document.getElementById('pl'+i).classList.add('done');
+    }
+    goStep(6);
+    document.getElementById('modalTitle').textContent = 'Booking Confirmed';
+  }
+</script>
+</body>
+</html>
